@@ -51,7 +51,13 @@ public class TabSteps {
     @Then("^the tab is \"([^\"]*)\"$")
     public void theTabIs(final String tabStatus) {
         assertThat(eventList, not(empty()));
-        assertThat(eventList, hasItem(isA(TabOpened.class)));
+        switch (tabStatus) {
+            case "opened":
+                assertThat(eventList, hasItem(isA(TabOpened.class)));
+                break;
+            default:
+                throw new RuntimeException("Undefined action");
+        }
     }
 
     @And("^the tab table is (\\d+)$")
