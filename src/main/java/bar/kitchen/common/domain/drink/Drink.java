@@ -1,8 +1,8 @@
 package bar.kitchen.common.domain.drink;
 
-import bar.kitchen.common.domain.account.AccountItem;
+import bar.kitchen.common.domain.tab.TabItem;
 
-public class Drink extends AccountItem {
+public class Drink extends TabItem {
   private String name;
 
   public Drink (String id, float price, String name) {

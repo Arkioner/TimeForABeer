@@ -1,10 +1,10 @@
-package bar.kitchen.common.domain.account;
+package bar.kitchen.common.domain.tab;
 
-public abstract class AccountItem {
+public abstract class TabItem {
   private String id;
   private float price;
 
-  public AccountItem(String id, float price) {
+  public TabItem(String id, float price) {
     this.id = id;
     this.price = price;
   }
