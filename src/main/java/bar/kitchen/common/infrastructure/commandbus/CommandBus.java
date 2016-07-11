@@ -1,8 +1,9 @@
 package bar.kitchen.common.infrastructure.commandbus;
 
-import geo.colorpalette.commander.domain.command.Command;
-import geo.colorpalette.commander.domain.command.CommandSubscriber;
-import geo.colorpalette.commander.domain.query.QuerySubscriber;
+import bar.kitchen.common.domain.command.Command;
+import bar.kitchen.common.domain.command.CommandSubscriber;
+import bar.kitchen.common.domain.event.EventSubscriber;
+import bar.kitchen.common.domain.query.QuerySubscriber;
 import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
@@ -24,5 +25,9 @@ public class CommandBus {
 
     public void addQuerySubscriber(QuerySubscriber subscriber) {
         subject.observeOn(Schedulers.immediate()).subscribe(subscriber);
+    }
+
+    public void addEventSubscriber(EventSubscriber subscriber) {
+        subject.observeOn(Schedulers.computation()).subscribe(subscriber);
     }
 }
