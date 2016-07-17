@@ -4,21 +4,17 @@ import bar.kitchen.common.domain.event.Event;
 import bar.kitchen.common.domain.tab.Tab;
 import bar.kitchen.common.domain.tab.command.OpenTab;
 import bar.kitchen.common.domain.tab.event.TabOpened;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.hamcrest.CoreMatchers;
 
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.isA;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.empty;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.*;
 
 /**
  * Created by IONER on 10/07/2016.
@@ -38,7 +34,7 @@ public class TabSteps {
 
     @When("^customer ask waiter to \"([^\"]*)\"$")
     public void customerAskWaiterTo(final String action) {
-        tab = new Tab();
+        tab = new Tab(null);
         switch (action) {
             case "openTab":
                 eventList = tab.handle(new OpenTab(table, waiter));

@@ -1,6 +1,7 @@
 package bar.kitchen.common.infrastructure.commandbus;
 
 import bar.kitchen.common.domain.command.Command;
+import bar.kitchen.common.domain.command.CommandBus;
 import bar.kitchen.common.domain.command.CommandSubscriber;
 import bar.kitchen.common.domain.event.EventSubscriber;
 import bar.kitchen.common.domain.query.QuerySubscriber;
@@ -10,10 +11,10 @@ import rx.subjects.PublishSubject;
 /**
  * Created by IONER on 03/07/2016.
  */
-public class CommandBus {
+public class InMemoryCommandBus implements CommandBus{
     private PublishSubject<Command> subject;
 
-    public CommandBus() {
+    public InMemoryCommandBus() {
         subject = PublishSubject.create();
     }
 

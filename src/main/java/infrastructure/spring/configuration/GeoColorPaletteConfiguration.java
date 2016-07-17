@@ -33,11 +33,11 @@ public class GeoColorPaletteConfiguration {
         return new GeoColorPaletteColorQuerySubscriber(colorQueryHandler);
     }
 
-    public CommandBus initCommandBus(
+    public InMemoryCommandBus initCommandBus(
             GeoColorPaletteColorCommandSubscriber geoColorPaletteColorCommandSubscriber,
             GeoColorPaletteColorQuerySubscriber geoColorPaletteColorQuerySubscriber
     ) {
-        CommandBus commandBus = new CommandBus();
+        InMemoryCommandBus commandBus = new InMemoryCommandBus();
         commandBus.addCommandSubscriber(geoColorPaletteColorCommandSubscriber);
         commandBus.addQuerySubscriber(geoColorPaletteColorQuerySubscriber);
         return commandBus;
