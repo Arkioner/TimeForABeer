@@ -62,11 +62,11 @@ public class TabSteps {
 
     @And("^the tab table is (\\d+)$")
     public void theTabTableIs(int table) {
-        assertThat(table, equalTo(this.table));
+        assertThat(this.tab.table(), equalTo(table));
     }
 
     @And("^the tab waiter is \"([^\"]*)\"$")
     public void theTabWaiterIs(String waiter) {
-        assertThat(waiter, equalTo(this.waiter));
+        assertThat(this.tab.waiter(), equalTo(waiter));
     }
 }
