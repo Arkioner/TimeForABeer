@@ -1,8 +1,8 @@
-package bar.kitchen.common.domain.tab;
+package bar.kitchen.common.domain.entity.tab;
 
-import bar.kitchen.common.domain.Entity;
-import bar.kitchen.common.domain.tab.command.OpenTab;
-import bar.kitchen.common.domain.tab.event.TabOpened;
+import bar.kitchen.common.domain.entity.Entity;
+import bar.kitchen.common.domain.entity.tab.command.OpenTab;
+import bar.kitchen.common.domain.entity.tab.event.TabOpened;
 import bar.kitchen.common.domain.event.Event;
 
 import java.util.ArrayList;
@@ -14,8 +14,10 @@ public class Tab extends Entity {
   private String waiter;
   private List<TabItem> list;
 
-  public Tab(UUID id) {
+  public Tab(UUID id, int table, String waiter) {
     super(id);
+    this.table = table;
+    this.waiter = waiter;
   }
 
   public void apply (TabOpened tabOpenedEvent) {
@@ -24,8 +26,9 @@ public class Tab extends Entity {
   }
 
   public List<Event> handle(OpenTab openTabCommand) {
-    TabOpened tabOpened = new TabOpened(openTabCommand.tableNumber(),openTabCommand.waiter());
-    apply(tabOpened);
+    table = openTabCommand.tableNumber();
+    waiter = openTabCommand.waiter();
+    final TabOpened tabOpened = new TabOpened(openTabCommand.tableNumber(),openTabCommand.waiter());
     return new ArrayList<Event>(){{add(tabOpened);}};
   }
 

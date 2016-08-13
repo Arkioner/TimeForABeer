@@ -1,4 +1,4 @@
-package bar.kitchen.common.domain;
+package bar.kitchen.common.domain.entity;
 
 import java.util.UUID;
 

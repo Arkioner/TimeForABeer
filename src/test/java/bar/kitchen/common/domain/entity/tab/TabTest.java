@@ -1,4 +1,4 @@
-package bar.kitchen.common.domain.tab;
+package bar.kitchen.common.domain.entity.tab;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"classpath:feature/tab/tab.feature"},
         dryRun = false,
-        glue = {"bar.kitchen.common.domain.tab.steps"},
+        glue = {"bar.kitchen.common.domain.entity.tab.steps"},
         format = {"pretty"}
 )
 public class TabTest {

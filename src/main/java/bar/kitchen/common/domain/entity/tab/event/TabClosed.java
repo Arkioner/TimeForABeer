@@ -1,4 +1,4 @@
-package bar.kitchen.common.domain.tab.event;
+package bar.kitchen.common.domain.entity.tab.event;
 
 import bar.kitchen.common.domain.event.Event;
 

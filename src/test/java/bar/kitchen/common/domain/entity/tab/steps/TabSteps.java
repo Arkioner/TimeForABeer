@@ -1,9 +1,9 @@
-package bar.kitchen.common.domain.tab.steps;
+package bar.kitchen.common.domain.entity.tab.steps;
 
 import bar.kitchen.common.domain.event.Event;
-import bar.kitchen.common.domain.tab.Tab;
-import bar.kitchen.common.domain.tab.command.OpenTab;
-import bar.kitchen.common.domain.tab.event.TabOpened;
+import bar.kitchen.common.domain.entity.tab.Tab;
+import bar.kitchen.common.domain.entity.tab.command.OpenTab;
+import bar.kitchen.common.domain.entity.tab.event.TabOpened;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -34,7 +34,7 @@ public class TabSteps {
 
     @When("^customer ask waiter to \"([^\"]*)\"$")
     public void customerAskWaiterTo(final String action) {
-        tab = new Tab(null);
+        tab = new Tab(null, this.table, this.waiter);
         switch (action) {
             case "openTab":
                 eventList = tab.handle(new OpenTab(table, waiter));

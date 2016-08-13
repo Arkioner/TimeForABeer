@@ -1,4 +1,4 @@
-package bar.kitchen.common.domain.tab;
+package bar.kitchen.common.domain.entity.tab;
 
 public abstract class TabItem {
   private String id;

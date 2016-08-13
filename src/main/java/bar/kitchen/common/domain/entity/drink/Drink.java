@@ -1,6 +1,6 @@
-package bar.kitchen.common.domain.drink;
+package bar.kitchen.common.domain.entity.drink;
 
-import bar.kitchen.common.domain.tab.TabItem;
+import bar.kitchen.common.domain.entity.tab.TabItem;
 
 public class Drink extends TabItem {
   private String name;
