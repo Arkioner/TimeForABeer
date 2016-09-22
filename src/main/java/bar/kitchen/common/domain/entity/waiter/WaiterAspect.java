@@ -13,8 +13,8 @@ public class WaiterAspect {
 
   @Before("execution(* bar.kitchen.common.domain.entity.waiter.Waiter.handle(..))")
   public void handle(JoinPoint joinPoint) {
-    System.out.println(joinPoint.getClass().getCanonicalName());
-    System.exit(20);
+    /*System.out.println(joinPoint.getClass().getCanonicalName());
+    System.exit(20);*/
   }
 
 }

@@ -6,13 +6,15 @@ import java.util.UUID;
 
 public class TabOpened implements Event{
   private UUID id;
+  private UUID tabId;
   private int tableNumber;
-  private String waiter;
+  private UUID waiterId;
 
-  public TabOpened(int tableNumber, String waiter) {
+  public TabOpened(UUID tabId, int tableNumber, UUID waiterId) {
+    this.tabId = tabId;
     id = UUID.randomUUID();
     this.tableNumber = tableNumber;
-    this.waiter = waiter;
+    this.waiterId = waiterId;
   }
 
   public UUID id() {
@@ -23,7 +25,11 @@ public class TabOpened implements Event{
     return tableNumber;
   }
 
-  public String waiter() {
-    return waiter;
+  public UUID waiterId() {
+    return waiterId;
+  }
+
+  public UUID tabId() {
+    return tabId;
   }
 }

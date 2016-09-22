@@ -10,6 +10,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import java.util.List;
+import java.util.UUID;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.isA;
@@ -21,13 +22,13 @@ import static org.hamcrest.Matchers.*;
  */
 public class TabSteps {
 
-    private String waiter;
+    private UUID waiter;
     private int table;
     private Tab tab;
     private List<Event> eventList;
 
     @Given("^a customer and the waiter \"([^\"]*)\" are at the table (\\d+)$")
-    public void customerIsOnTable(final String waiter, final int table) {
+    public void customerIsOnTable(final UUID waiter, final int table) {
         this.waiter = waiter;
         this.table = table;
     }

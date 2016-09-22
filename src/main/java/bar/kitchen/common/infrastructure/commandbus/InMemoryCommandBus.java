@@ -20,15 +20,9 @@ public class InMemoryCommandBus implements CommandBus{
 
     public void dispatch(Command cmd) { subject.onNext(cmd);}
 
-    public void addCommandSubscriber(CommandSubscriber subscriber) {
-        subject.observeOn(Schedulers.computation()).subscribe(subscriber);
-    }
-
-    public void addQuerySubscriber(QuerySubscriber subscriber) {
+    public CommandBus addCommandSubscriber(CommandSubscriber subscriber) {
         subject.observeOn(Schedulers.immediate()).subscribe(subscriber);
+        return this;
     }
 
-    public void addEventSubscriber(EventSubscriber subscriber) {
-        subject.observeOn(Schedulers.computation()).subscribe(subscriber);
-    }
 }

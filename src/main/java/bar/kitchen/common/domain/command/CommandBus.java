@@ -9,9 +9,7 @@ import bar.kitchen.common.domain.query.QuerySubscriber;
 public interface CommandBus {
     void dispatch(Command cmd);
 
-    public void addCommandSubscriber(CommandSubscriber subscriber);
+    public CommandBus addCommandSubscriber(CommandSubscriber subscriber);
 
-    public void addQuerySubscriber(QuerySubscriber subscriber);
 
-    public void addEventSubscriber(EventSubscriber subscriber);
 }

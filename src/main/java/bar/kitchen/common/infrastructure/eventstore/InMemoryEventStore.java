@@ -28,9 +28,10 @@ public class InMemoryEventStore implements EventStore {
     @Override
     public void SaveEventsFor(UUID id, Observable<Event> newEvents) {
         LoadEventsFor(id)
+                .onErrorResumeNext(Observable.empty())
                 .concatWith(newEvents)
                 .toList()
                 .doOnNext(events -> registry.put(id, events))
-                .subscribe();
+                .toBlocking().first();
     }
 }

@@ -14,11 +14,11 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  */
 @SpringBootApplication
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-public class GeoApplication {
+public class RestaurantApplication {
     private static ApplicationContext ctx;
 
     public static void main(String[] args) {
-        ctx = SpringApplication.run(GeoApplication.class, args);
+        ctx = SpringApplication.run(RestaurantApplication.class, args);
 
         /*System.out.println("Let's inspect the beans provided by Spring Boot:");
 
@@ -28,7 +28,7 @@ public class GeoApplication {
             System.out.println(beanName);
         }*/
 
-        ctx.getBean(Waiter.class).handle(new OpenTab(42,"John")).stream().forEach(System.out::println);
+        //ctx.getBean(Waiter.class).handle(new OpenTab(42,"John")).stream().forEach(System.out::println);
     }
 
     public static int exit(){

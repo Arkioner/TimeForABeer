@@ -7,12 +7,12 @@ import java.util.UUID;
 public class OpenTab implements Command{
   private UUID id;
   private int tableNumber;
-  private String waiter;
+  private UUID waiterId;
 
-  public OpenTab(int tableNumber, String waiter) {
+  public OpenTab(int tableNumber, UUID waiterId) {
     this.id = UUID.randomUUID();
     this.tableNumber = tableNumber;
-    this.waiter = waiter;
+    this.waiterId = waiterId;
   }
 
   public UUID id() {
@@ -23,7 +23,7 @@ public class OpenTab implements Command{
     return tableNumber;
   }
 
-  public String waiter() {
-    return waiter;
+  public UUID waiterId() {
+    return waiterId;
   }
 }

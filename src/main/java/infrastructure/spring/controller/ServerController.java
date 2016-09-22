@@ -1,6 +1,6 @@
 package infrastructure.spring.controller;
 
-import infrastructure.spring.GeoApplication;
+import infrastructure.spring.RestaurantApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +21,8 @@ public class ServerController {
 
     @RequestMapping(method = GET, path = "/stop")
     public void stop() {
-        GeoApplication.exit();
+        RestaurantApplication.exit();
     }
+
 
 }
